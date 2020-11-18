@@ -1,3 +1,4 @@
+package com.revature.pirate.model;
 public class Pirate{ //implements Serializeable
 	private String name; //instance
 	private String role;
