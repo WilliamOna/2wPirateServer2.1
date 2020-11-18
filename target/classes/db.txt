@@ -1,0 +1,3 @@
+Hook,Captain
+BlackBeard,Quartermaster
+BlueBeard,First-Mate
