@@ -1,4 +1,4 @@
-package com.revature.pirate.repository;
+package com.revature.pirate.dao;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import com.revature.pirate.model.Pirate;
 
-public class PirateRepository {
+public class FilePirateDAO {
 	public ArrayList<Pirate> readFile(){
 		ArrayList<Pirate> pirates = new ArrayList<>();
 		InputStream inputStream = null;

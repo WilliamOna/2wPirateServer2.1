@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import com.revature.pirate.dao.FilePirateDAO;
 import com.revature.pirate.logic.PirateLogic;
 import com.revature.pirate.model.Pirate;
-import com.revature.pirate.repository.PirateRepository;
 import com.revature.pirate.util.Dowloader;
+import com.revature.pirate.util.JDBCUtility;
 public class App{
 	public static void main(String[] args){
 //		PirateRepository pirateRepository = new PirateRepository();
@@ -33,7 +34,6 @@ public class App{
 //		
 //		pirateLogic.showPirates(pirates);
 //		scanner.close();
-
 		
 	}
 	

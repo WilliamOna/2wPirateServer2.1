@@ -21,12 +21,16 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>GetAllPirateServlet</servlet-name>
-  	<servlet-class>com.revature.pirate.servercom.GetAllPirateServlet</servlet-class>
+  	<servlet-name>PirateServlet</servlet-name>
+  	<servlet-class>com.revature.pirate.servercom.PirateServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>GetAllPirateServlet</servlet-name>
-  	<url-pattern>/GetAllPirateServlet</url-pattern>
+  	<servlet-name>PirateServlet</servlet-name>
+  	<url-pattern>/pirate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PirateServlet</servlet-name>
+  	<url-pattern>/pirate/*</url-pattern>
   </servlet-mapping>
  
 </web-app>
