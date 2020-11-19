@@ -13,7 +13,7 @@
     <description></description>
     <display-name>HelloServlet</display-name>
     <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>com.revature.pirate.servercom.HelloServlet</servlet-class>
+    <servlet-class>com.revature.pirate.servlet.HelloServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
@@ -22,7 +22,7 @@
   
   <servlet>
   	<servlet-name>PirateServlet</servlet-name>
-  	<servlet-class>com.revature.pirate.servercom.PirateServlet</servlet-class>
+  	<servlet-class>com.revature.pirate.servlet.PirateServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
