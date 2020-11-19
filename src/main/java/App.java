@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import com.revature.pirate.dao.FilePirateDAO;
-import com.revature.pirate.logic.PirateLogic;
 import com.revature.pirate.model.Pirate;
+import com.revature.pirate.service.PirateService;
 import com.revature.pirate.util.Dowloader;
 import com.revature.pirate.util.JDBCUtility;
 public class App{

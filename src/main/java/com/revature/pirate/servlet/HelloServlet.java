@@ -1,4 +1,4 @@
-package com.revature.pirate.servercom;
+package com.revature.pirate.servlet;
 
 
 import java.io.IOException;

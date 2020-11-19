@@ -5,6 +5,10 @@ public class Pirate{ //implements Serializeable
 	private String name; //instance
 	private Role role;
 	
+	public Pirate() {
+		super();
+	}
+	
 	public Pirate(String name, Role role){
 		this.name = name;
 		this.role = role;

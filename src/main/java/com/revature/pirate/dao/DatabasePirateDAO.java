@@ -36,7 +36,6 @@ public class DatabasePirateDAO {
 			// row 1 _ row 2 | row 3
 			// row 1 _ row 2 _ row 3 |
 			
-			
 			while (rs.next()) {
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
@@ -57,51 +56,53 @@ public class DatabasePirateDAO {
 		return pirates;
 	}
 	
-//	public Pirate insertPirate(Pirate pirateToInsert) {
-//		
-//		try (Connection connection = JDBCUtility.getConnection()) {
-//			connection.setAutoCommit(false); // Committing it goes into the whole idea of transactions. By default, Postgres is set to
-//			// Automatically commit any changes you make to the database. Sometimes this is not ideal, especially if you want to 
-//			// make sure all operations are successful before persisting changes (committing). 
-//			// Bank transfers might be a good example. For example you will have to withdraw money from one account and deposit to another
-//			// If you have autocommit set to true, if you withdraw from the first account, and then somehow your database loses power,
-//			// the withdraw from the first account would already have been committed
-//			
-//			// This is not ideal, because we would only want to commit once the withdraw from one account and the deposit to another account
-//			// Has successfully been completed
-//			
-//			// ACID properties of transactions, Atomicity, Consistency, Isolation, Durability
-//			String sqlQuery = "INSERT INTO pirate "
-//					+ "(name, role) "
-//					+ "VALUES "
-//					+ "(?, ?)";
-//			
-//			PreparedStatement pstmt = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
-//			
-//			pstmt.setString(1, pirateToInsert.getName());
-//			pstmt.setString(2, pirateToInsert.getRole());
-//			
-//			if (pstmt.executeUpdate() != 1) {
-//				throw new SQLException("Inserting pirate failed, no rows were affected");
-//			}
-//			
-//			int autoId = 0;
-//			ResultSet generatedKeys = pstmt.getGeneratedKeys();
-//			if (generatedKeys.next()) {
-//				autoId = generatedKeys.getInt(1);
-//			} else {
-//				throw new SQLException("Inserting pirate failed, no ID generated");
-//			}
-//			
-//			connection.commit();
-//			
-//			return new Pirate(autoId, pirateToInsert.getName(), pirateToInsert.getRole());
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return null;
-//	}
+	/**
+	 * @return Pirate or null
+	 */
+	public Pirate insertPirate(String pirateName, Role role) {
+		
+		try (Connection connection = JDBCUtility.getConnection()) {
+			connection.setAutoCommit(false); // Committing it goes into the whole idea of transactions. By default, Postgres is set to
+			// Automatically commit any changes you make to the database. Sometimes this is not ideal, especially if you want to 
+			// make sure all operations are successful before persisting changes (committing). 
+			// Bank transfers might be a good example. For example you will have to withdraw money from one account and deposit to another
+			// If you have autocommit set to true, if you withdraw from the first account, and then somehow your database loses power,
+			// the withdraw from the first account would already have been committed
+			
+			// This is not ideal, because we would only want to commit once the withdraw from one account and the deposit to another account
+			// Has successfully been completed
+			
+			// ACID properties of transactions, Atomicity, Consistency, Isolation, Durability
+			String sqlQuery = "INSERT INTO pirate "
+					+ "(name, role_id) "
+					+ "VALUES "
+					+ "(?, ?)";
+			
+			PreparedStatement pstmt = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+			
+			pstmt.setString(1, pirateName);
+			pstmt.setInt(2, role.getId());
+			
+			if (pstmt.executeUpdate() != 1) {
+				throw new SQLException("Inserting pirate failed, no rows were affected");
+			}
+			
+			int autoId = 0;
+			ResultSet generatedKeys = pstmt.getGeneratedKeys();
+			if (generatedKeys.next()) {
+				autoId = generatedKeys.getInt(1);
+			} else {
+				throw new SQLException("Inserting pirate failed, no ID generated");
+			}
+			
+			connection.commit();
+			
+			return new Pirate(autoId, pirateName, role);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 		
 }

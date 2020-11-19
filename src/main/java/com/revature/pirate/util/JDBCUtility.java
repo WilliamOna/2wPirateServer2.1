@@ -35,7 +35,7 @@ public class JDBCUtility {
 	 * WIthin this utility class, we will have a static method that retrieves a connection to the DB, or creates a connection
 	 */
 	
-	public static Connection getConnection() {
+	public static Connection getConnection() throws SQLException {
 		/*
 		 * To obtain a connection, we need to provide credentials along with a connection string
 		 * The connection string is formatted like jdbc:<driver protocol>:<connection details>
@@ -58,12 +58,8 @@ public class JDBCUtility {
 		
 		Connection connection = null;
 		
-		try {
-			DriverManager.registerDriver(new Driver());
-			connection = DriverManager.getConnection(url, username, password);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		DriverManager.registerDriver(new Driver());
+		connection = DriverManager.getConnection(url, username, password);
 		
 		return connection;
 	}
