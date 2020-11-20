@@ -1,17 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import org.apache.log4j.Logger;
 
-import com.revature.pirate.logic.PirateLogic;
-import com.revature.pirate.model.Pirate;
-import com.revature.pirate.repository.PirateRepository;
-import com.revature.pirate.util.Dowloader;
-public class App{
+import com.revature.pirate.servlet.HelloServlet;
+
+public class App extends HelloServlet{
 	public static void main(String[] args){
 //		PirateRepository pirateRepository = new PirateRepository();
 //		PirateLogic pirateLogic = new PirateLogic();
@@ -33,7 +24,8 @@ public class App{
 //		
 //		pirateLogic.showPirates(pirates);
 //		scanner.close();
-
+		Logger logger = Logger.getLogger(App.class);
+		logger.debug("Logger Works! (Log4j 1)");
 		
 	}
 	
