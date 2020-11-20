@@ -1,0 +1,8 @@
+unnamed package
+com.revature.pirate.dao
+com.revature.pirate.exception
+com.revature.pirate.model
+com.revature.pirate.service
+com.revature.pirate.servlet
+com.revature.pirate.template
+com.revature.pirate.util

@@ -57,6 +57,17 @@ public class DatabasePirateDAO {
 	}
 	
 	/**
+	 * Inserts a pirate into the database. Uses JDBC to open a connection to the DB and then creates an
+	 * SQL query in the form of:
+	 * "INSERT INTO pirate "
+					+ "(name, role_id) "
+					+ "VALUES "
+					+ "(?, ?)"
+					
+		And then exectues it using a PreparedStatement. A prepared statement is used in order to 
+		sanitize for SQL injection
+	 * @param pirateName, This is the string that determines the name of the pirate
+	 * @param role, This is the string that determines the role of the pirate
 	 * @return Pirate or null
 	 */
 	public Pirate insertPirate(String pirateName, Role role) {
