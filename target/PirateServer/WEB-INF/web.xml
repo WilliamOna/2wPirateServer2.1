@@ -13,10 +13,25 @@
     <description></description>
     <display-name>HelloServlet</display-name>
     <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>HelloServlet</servlet-class>
+    <servlet-class>com.revature.pirate.servlet.HelloServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/HelloServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>PirateServlet</servlet-name>
+  	<servlet-class>com.revature.pirate.servlet.PirateServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>PirateServlet</servlet-name>
+  	<url-pattern>/pirate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PirateServlet</servlet-name>
+  	<url-pattern>/pirate/*</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>
