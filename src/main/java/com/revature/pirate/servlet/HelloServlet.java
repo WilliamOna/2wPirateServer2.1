@@ -25,7 +25,7 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		logger.debug("GET request made to " + request.getRequestURI());
-		response.getWriter().append("Hello World!");
+		response.getWriter().append("Hello JAVA REACT!");
 		
 	}
 
