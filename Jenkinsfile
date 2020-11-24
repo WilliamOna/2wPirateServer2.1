@@ -2,15 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('clean') {
             steps {
-                echo 'Hello World'
+                sh 'mvn clean'
             }
         }
-        stage('make file'){
+        stage('package') {
             steps {
-                sh 'touch ~/jenkins-was-here.txt'
+                sh 'mvn package'
             }
+        }
+        stage('deploy'){
+        	steps{
+        		sh 'cp /home/ec2-user/.jenkins/workspace/PiratePipeline/target/PirateServer.war /home/ec2-user/apache-tomcat-8.5.60/webapps'
+        	}
         }
     }
 }
