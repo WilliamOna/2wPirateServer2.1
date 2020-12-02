@@ -40,6 +40,11 @@
 		<servlet-name>StaticResourceServlet</servlet-name>
 		<url-pattern></url-pattern>
 		<url-pattern>/pirate-list</url-pattern>
+		<url-pattern>/pirate-form</url-pattern>
+		<url-pattern>/styles/pirate-1</url-pattern>
+		<url-pattern>/js/pirate-list</url-pattern>
+		<url-pattern>/js/pirate-form</url-pattern>
+		<url-pattern>/img/pirate-ship.jpg</url-pattern>
 	</servlet-mapping>
 
 	<security-constraint>

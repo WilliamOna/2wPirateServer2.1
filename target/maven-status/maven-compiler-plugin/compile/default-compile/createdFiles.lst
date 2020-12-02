@@ -2,6 +2,7 @@ com\revature\pirate\dao\DatabaseRoleDAO.class
 com\revature\pirate\util\JDBCUtility.class
 com\revature\pirate\dao\FilePirateDAO.class
 com\revature\pirate\util\Dowloader2.class
+com\revature\pirate\servlet\StaticResourceServlet.class
 com\revature\pirate\template\InsertPirateTemplate.class
 App.class
 com\revature\pirate\dao\DatabasePirateDAO.class

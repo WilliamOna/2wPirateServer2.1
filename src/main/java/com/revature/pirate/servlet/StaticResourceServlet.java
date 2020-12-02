@@ -29,6 +29,7 @@ public class StaticResourceServlet extends HttpServlet {
 					System.out.println("invoked forwarding of index.html");
 					req.getRequestDispatcher("static/index.html").include(req, resp);
 					
+					resp.setContentType("text/html");
 					resp.setStatus(200);
 					
 //					Hey tomcat, forward our request and response object to this other endpoint 
@@ -38,8 +39,44 @@ public class StaticResourceServlet extends HttpServlet {
 					break;
 				case "/pirate-list":
 					System.out.println("invoked forwarding of pirate-list.html");
-					req.getRequestDispatcher("static/pirate-list.html").include(req, resp);
+					req.getRequestDispatcher("/static/pirate-list.html").include(req, resp);
 					
+					resp.setContentType("text/html");
+					resp.setStatus(200);
+					break;
+				case "/pirate-form":
+					System.out.println("invoked forwarding of pirate-form.html");
+					req.getRequestDispatcher("/static/pirate-form.html").include(req, resp);
+					
+					resp.setContentType("text/html");
+					resp.setStatus(200);
+					break;
+				case "/styles/pirate-1":
+					System.out.println("invoked forwarding of styles.css");
+					req.getRequestDispatcher("/static/css/styles.css").include(req, resp);
+					
+					resp.setContentType("text/css");
+					resp.setStatus(200);
+					break;
+				case "/js/pirate-list":
+					System.out.println("invoked forwarding of pirate-list.js");
+					req.getRequestDispatcher("/static/js/pirate-list.js").include(req, resp);
+					
+					resp.setContentType("text/javascript");
+					resp.setStatus(200);
+					break;
+				case "/js/pirate-form":
+					System.out.println("invoked forwarding of pirate-form.js");
+					req.getRequestDispatcher("/static/js/pirate-form.js").include(req, resp);
+					
+					resp.setContentType("text/javascript");
+					resp.setStatus(200);
+					break;
+				case "/img/pirate-ship.jpg":
+					System.out.println("invoked forwarding of pirate-ship.jpg");
+					req.getRequestDispatcher("/static/img/pirate-ship.jpg").include(req, resp);
+					
+					resp.setContentType("image/jpeg");
 					resp.setStatus(200);
 					break;
 				default:
