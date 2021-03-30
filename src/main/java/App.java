@@ -1,32 +1,50 @@
-import org.apache.log4j.Logger;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.revature.pirate.servlet.HelloServlet;
 
 public class App extends HelloServlet{
-	public static void main(String[] args){
-//		PirateRepository pirateRepository = new PirateRepository();
-//		PirateLogic pirateLogic = new PirateLogic();
-//		
-//		//Ask for user input
-//		Scanner scanner = new Scanner(System.in);
-//		System.out.println("Enter the name of the pirate!");
-//		
-//		String name = scanner.nextLine();
-//		ArrayList<Pirate> pirates = pirateRepository.readFile();
-//
-//		//output all of the pirates
-//		pirateLogic.showPirates(pirates);
-//		
-//		System.out.println("What role do you want this pirate to have");
-//		String role = scanner.nextLine();
-//		pirateLogic.setPirate(pirates, name, role);
-//			
-//		
-//		pirateLogic.showPirates(pirates);
-//		scanner.close();
-		Logger logger = Logger.getLogger(App.class);
-		logger.debug("Logger Works! (Log4j 1)");
+	public static void main(String[] args) throws InterruptedException{
+		// Tell java that you want to use the chrome driver for selenium
+		System.setProperty("webdriver.chrome.driver", "/Users/WilliamOna/Downloads/chromedriver.exe");
 		
+		//Create new instance of ChromeDriver (note that your other options are: 
+		//geckodriver for Firefox, edgedriver for Edge, Safari)
+		WebDriver driver = new ChromeDriver();
+		
+		//use the driver to open some website
+		driver.get("http://localhost:8080/PirateServer/");
+		
+		//select the element for "View Pirates" button
+		WebElement viewPiratesButton = driver.findElement(By.xpath("//*[@id=\"showcase-content\"]/button/a"));
+		
+		//click on the button
+		viewPiratesButton.click();
+		
+		//assert that we successfully navigate to the correct page
+		String url = driver.getCurrentUrl();
+		System.out.println(url);
+		System.out.println("Testing to make sure that the url is correct "
+				+ "(http://localhost:8080/PirateServer/pirate-list)");
+		System.out.println(url.equals("http://localhost:8080/PirateServer/pirate-list")?"test pass":"test fails");
+		
+		try {
+			WebElement pirateTableBody = driver.findElement(By.id("pirate-table-dat"));			
+			if(pirateTableBody!=null) {
+				System.out.println("Test pass");
+			}
+		}catch(Exception e) {
+			System.out.println("Can't find the element... test failed");
+			driver.quit();
+		}
+		
+		//close the browser
+		Thread.sleep(4000);
+		driver.quit();
 	}
 	
 
