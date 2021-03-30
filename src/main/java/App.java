@@ -43,7 +43,6 @@ public class App extends HelloServlet{
 		}
 		
 		//close the browser
-		Thread.sleep(4000);
 		driver.quit();
 	}
 	
