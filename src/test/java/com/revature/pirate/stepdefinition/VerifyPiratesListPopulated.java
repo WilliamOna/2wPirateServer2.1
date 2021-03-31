@@ -1,5 +1,8 @@
 package com.revature.pirate.stepdefinition;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,12 +34,13 @@ public class VerifyPiratesListPopulated {
 	@Then("we have the appropriate url")
 	public void we_have_the_appropriate_url() {
 		ViewPiratePage viewPiratePage = new ViewPiratePage(driver);
-		System.out.println(viewPiratePage.getUrl());
+		assertEquals(viewPiratePage.getUrl(),"http://localhost:8080/PirateServer/pirate-list" );
 	}
 
 	@Then("the body of the table is rendering")
 	public void the_body_of_the_table_is_rendering() {
 		ViewPiratePage viewPiratePage = new ViewPiratePage(driver);
-		System.out.println(viewPiratePage.getPirateTableBody());
+		assertNotNull(viewPiratePage.getPirateTableBody());
+		driver.quit();
 	}
 }
